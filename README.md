@@ -65,6 +65,38 @@ DB_PATH=database.db
 - `/edit YYYY-MM-DD 4 YYYY-MM-DD 5` - редактирует сразу несколько дней
 - текст `Отлично`, `Хорошо`, `Нормально`, `Плохо`, `Ужасно` - тоже сохраняет настроение
 
+## Systemd
+
+Для Linux-сервера есть готовые скрипты:
+
+- `deploy/install_systemd.sh` - создаёт и запускает `systemd`-службу
+- `deploy/uninstall_systemd.sh` - останавливает и удаляет службу
+
+Установка:
+
+```bash
+sudo bash deploy/install_systemd.sh
+```
+
+Удаление:
+
+```bash
+sudo bash deploy/uninstall_systemd.sh
+```
+
+По умолчанию служба называется `tg-bot`, запускается из текущей директории проекта и использует:
+
+- `/opt/tg-bot`
+- `/opt/tg-bot/.venv/bin/python3`
+- `/opt/tg-bot/.env`
+- `/opt/tg-bot/bot.py`
+
+При необходимости можно переопределить параметры через переменные окружения:
+
+```bash
+sudo SERVICE_NAME=vk-mood-bot APP_USER=root WORKDIR=/opt/tg-bot bash deploy/install_systemd.sh
+```
+
 Пример:
 
 ```text
