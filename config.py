@@ -4,8 +4,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-BOT_TOKEN = os.getenv("BOT_TOKEN")
+VK_BOT_TOKEN = os.getenv("VK_BOT_TOKEN") or os.getenv("BOT_TOKEN")
 DB_PATH = os.getenv("DB_PATH", "database.db")
 
-if not BOT_TOKEN:
-    raise ValueError("Переменная окружения BOT_TOKEN не задана")
+if not VK_BOT_TOKEN:
+    raise ValueError("Переменная окружения VK_BOT_TOKEN не задана")

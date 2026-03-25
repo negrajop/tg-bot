@@ -27,11 +27,11 @@ def parse_args():
     parser = argparse.ArgumentParser(
         description="Заполняет БД фейковыми пользовательскими данными о настроении."
     )
-    parser.add_argument("--user-id", type=int, default=1, help="Telegram user id")
+    parser.add_argument("--user-id", type=int, default=1, help="VK user id")
     parser.add_argument(
         "--username",
         default="demo_user",
-        help="Username пользователя для тестовых данных",
+        help="Имя пользователя для тестовых данных",
     )
     return parser.parse_args()
 

@@ -9,7 +9,7 @@ def parse_args():
     parser = argparse.ArgumentParser(
         description="Строит график настроения конкретного пользователя."
     )
-    parser.add_argument("--user-id", type=int, required=True, help="Telegram user id")
+    parser.add_argument("--user-id", type=int, required=True, help="VK user id")
     parser.add_argument(
         "--output",
         default="mood_chart.png",
@@ -39,10 +39,7 @@ def main():
     output_path = Path(args.output)
     output_path.write_bytes(chart.getvalue())
 
-    print(
-        f"График сохранён в {output_path}. "
-        f"Индекс счастья: {happiness_index}/100."
-    )
+    print(f"График сохранён в {output_path}. Индекс счастья: {happiness_index}/100.")
 
 
 if __name__ == "__main__":
